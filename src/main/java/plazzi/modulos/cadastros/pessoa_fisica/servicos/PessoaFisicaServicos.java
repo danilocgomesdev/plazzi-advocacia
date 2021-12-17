@@ -1,7 +1,7 @@
 package plazzi.modulos.cadastros.pessoa_fisica.servicos;
 
 import plazzi.core.exception.EntidadeNotFoundException;
-import plazzi.modulos.cadastros.pessoa_fisica.entidade.PessoaFisica;
+import plazzi.modulos.cadastros.pessoa_fisica.entidades.PessoaFisica;
 import plazzi.modulos.cadastros.pessoa_fisica.repositorio.PessoaFisicaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;

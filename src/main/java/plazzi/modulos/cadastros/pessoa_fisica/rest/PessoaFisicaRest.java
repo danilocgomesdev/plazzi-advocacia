@@ -1,6 +1,6 @@
 package plazzi.modulos.cadastros.pessoa_fisica.rest;
 
-import plazzi.modulos.cadastros.pessoa_fisica.entidade.PessoaFisica;
+import plazzi.modulos.cadastros.pessoa_fisica.entidades.PessoaFisica;
 import plazzi.modulos.cadastros.pessoa_fisica.servicos.PessoaFisicaServicos;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -46,7 +46,7 @@ public class PessoaFisicaRest implements PessoaFisicaApi {
     public ResponseEntity<PessoaFisica> Adicionar(@RequestBody PessoaFisica pessoaFisica){
         pessoaFisica = pessoaFisicaServicos.inserir(pessoaFisica);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
-                .buildAndExpand(pessoaFisica.getId_pf()).toUri();
+                .buildAndExpand(pessoaFisica.getIdPf()).toUri();
         return ResponseEntity.created(uri).body(pessoaFisica);
     }
 
