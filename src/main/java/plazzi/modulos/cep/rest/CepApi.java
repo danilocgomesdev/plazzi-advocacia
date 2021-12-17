@@ -1,8 +1,8 @@
 package plazzi.modulos.cep.rest;
 
 
-import org.springframework.http.ResponseEntity;
 import plazzi.modulos.cep.entidade.Cep;
+import org.springframework.http.ResponseEntity;
 
 public interface CepApi {
 

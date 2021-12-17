@@ -1,18 +1,18 @@
 package plazzi.modulos.cep.rest;
 
-
+import plazzi.core.exception.EntidadeNotFoundException;
+import plazzi.modulos.cep.entidade.Cep;
+import plazzi.modulos.cep.servicos.CepServicos;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import plazzi.core.exceptions.EntidadeNotFoundException;
-import plazzi.modulos.cep.entidade.Cep;
-import plazzi.modulos.cep.servicos.CepServicos;
-
 
 @RestController
+@Api(value="API REST Pessoa Fisica")
 @CrossOrigin(origins = "*")
 public class CepRest implements CepApi {
 
