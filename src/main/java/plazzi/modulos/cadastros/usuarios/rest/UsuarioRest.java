@@ -36,7 +36,7 @@ public class UsuarioRest implements UsuarioApi {
     public ResponseEntity<Usuario> Adicionar(@RequestBody Usuario usuario){
         usuario = usuarioServicos.inserir(usuario);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
-                .buildAndExpand(usuario.getId()).toUri();
+                .buildAndExpand(usuario.getIdUsuario()).toUri();
         return ResponseEntity.created(uri).body(usuario);
     }
 

@@ -1,4 +1,4 @@
-package plazzi.modulos.cadastros.pessoa_fisica.entidade;
+package plazzi.modulos.cadastros.pessoa_fisica.entidades;
 
 
 
@@ -8,13 +8,14 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
+@Table(name = "PESSOA_FISICA")
 public class PessoaFisica implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_pf;
+    private Long idPf;
     private String nome;
     private String cpf;
     private Date dataNascimento;
@@ -30,8 +31,8 @@ public class PessoaFisica implements Serializable {
     public PessoaFisica(){
     }
 
-    public PessoaFisica(Long id_pf, String nome, String cpf, Date dataNascimento, String email, String sexo, String escolaridade, String rg, String orgaoExpedidor, Date dataExpedicao, String estadoCivil, String nacionalidade) {
-        this.id_pf = id_pf;
+    public PessoaFisica(Long idPf, String nome, String cpf, Date dataNascimento, String email, String sexo, String escolaridade, String rg, String orgaoExpedidor, Date dataExpedicao, String estadoCivil, String nacionalidade) {
+        this.idPf = idPf;
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
@@ -45,12 +46,12 @@ public class PessoaFisica implements Serializable {
         this.nacionalidade = nacionalidade;
     }
 
-    public Long getId_pf() {
-        return id_pf;
+    public Long getIdPf() {
+        return idPf;
     }
 
-    public void setId_pf(Long id_pf) {
-        this.id_pf = id_pf;
+    public void setIdPf(Long idPf) {
+        this.idPf = idPf;
     }
 
     public String getNome() {
@@ -146,11 +147,11 @@ public class PessoaFisica implements Serializable {
         if (this == o) return true;
         if (!(o instanceof PessoaFisica)) return false;
         PessoaFisica that = (PessoaFisica) o;
-        return Objects.equals(id_pf, that.id_pf) && Objects.equals(cpf, that.cpf) && Objects.equals(email, that.email);
+        return Objects.equals(idPf, that.idPf) && Objects.equals(cpf, that.cpf) && Objects.equals(email, that.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_pf, cpf, email);
+        return Objects.hash(idPf, cpf, email);
     }
 }

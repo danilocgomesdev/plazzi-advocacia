@@ -15,7 +15,7 @@ public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idUsuario;
     private Long idPessoaFisica;
     private String nome;
     private String email;
@@ -24,20 +24,20 @@ public class Usuario implements Serializable {
     public Usuario(){
     }
 
-    public Usuario(Long id, Long idPessoaFisica, String nome, String email, String senha) {
-        this.id = id;
+    public Usuario(Long idUsuario, Long idPessoaFisica, String nome, String email, String senha) {
+        this.idUsuario = idUsuario;
         this.idPessoaFisica = idPessoaFisica;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public Long getIdPessoaFisica() {
@@ -77,11 +77,11 @@ public class Usuario implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Usuario)) return false;
         Usuario usuario = (Usuario) o;
-        return Objects.equals(id, usuario.id) && Objects.equals(email, usuario.email);
+        return Objects.equals(idUsuario, usuario.idUsuario) && Objects.equals(email, usuario.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, email);
+        return Objects.hash(idUsuario, email);
     }
 }

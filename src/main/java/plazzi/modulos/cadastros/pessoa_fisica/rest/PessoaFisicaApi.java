@@ -1,6 +1,6 @@
 package plazzi.modulos.cadastros.pessoa_fisica.rest;
 
-import plazzi.modulos.cadastros.pessoa_fisica.entidade.PessoaFisica;
+import plazzi.modulos.cadastros.pessoa_fisica.entidades.PessoaFisica;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
