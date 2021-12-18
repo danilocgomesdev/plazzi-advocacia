@@ -46,7 +46,7 @@ public class PessoaFisicaRest implements PessoaFisicaApi {
     public ResponseEntity<PessoaFisica> Adicionar(@RequestBody PessoaFisica pessoaFisica){
         pessoaFisica = pessoaFisicaServicos.inserir(pessoaFisica);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
-                .buildAndExpand(pessoaFisica.getIdPf()).toUri();
+                .buildAndExpand(pessoaFisica.getIdPessoaFisica()).toUri();
         return ResponseEntity.created(uri).body(pessoaFisica);
     }
 

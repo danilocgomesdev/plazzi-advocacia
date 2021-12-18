@@ -1,21 +1,21 @@
 package plazzi.modulos.cadastros.usuarios.entidade;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@Table(name = "USUARIO")
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long idUsuario;
+
     private Long idPessoaFisica;
     private String nome;
     private String email;
@@ -77,11 +77,11 @@ public class Usuario implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Usuario)) return false;
         Usuario usuario = (Usuario) o;
-        return Objects.equals(idUsuario, usuario.idUsuario) && Objects.equals(email, usuario.email);
+        return Objects.equals(idUsuario, usuario.idUsuario) && Objects.equals(idPessoaFisica, usuario.idPessoaFisica) && Objects.equals(email, usuario.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idUsuario, email);
+        return Objects.hash(idUsuario, idPessoaFisica, email);
     }
 }

@@ -58,6 +58,7 @@ public class PessoaFisicaServicos {
         entidade.setNome(pessoaFisica.getNome());
         entidade.setEmail(pessoaFisica.getEmail());
         entidade.setEscolaridade(pessoaFisica.getEscolaridade());
+        entidade.setEstadoCivil(pessoaFisica.getEstadoCivil());
 
     }
 

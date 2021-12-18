@@ -5,15 +5,17 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ENDERECO_PF")
+@Table(name = "ENDERECO_PESSOA_FISICA")
 public class EnderecoPessoaFisica implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long idEndereco;
 
-    private Long idPessoa;
+    @OneToOne
+    @JoinColumn(name = "ID_PESSOA_FISICA")
+    private PessoaFisica pessoaFisica;
     private String rua;
     private String complemento;
     private String numero;
@@ -23,9 +25,9 @@ public class EnderecoPessoaFisica implements Serializable {
 
     public EnderecoPessoaFisica(){}
 
-    public EnderecoPessoaFisica(Long idEndereco, Long idPessoa, String rua, String complemento, String numero, String bairro, String cidade, String uf) {
+    public EnderecoPessoaFisica(Long idEndereco, PessoaFisica pessoaFisica, String rua, String complemento, String numero, String bairro, String cidade, String uf) {
         this.idEndereco = idEndereco;
-        this.idPessoa = idPessoa;
+        this.pessoaFisica = pessoaFisica;
         this.rua = rua;
         this.complemento = complemento;
         this.numero = numero;
@@ -42,12 +44,12 @@ public class EnderecoPessoaFisica implements Serializable {
         this.idEndereco = idEndereco;
     }
 
-    public Long getIdPessoa() {
-        return idPessoa;
+    public PessoaFisica getPessoaFisica() {
+        return pessoaFisica;
     }
 
-    public void setIdPessoa(Long idPessoa) {
-        this.idPessoa = idPessoa;
+    public void setPessoaFisica(PessoaFisica pessoaFisica) {
+        this.pessoaFisica = pessoaFisica;
     }
 
     public String getRua() {
@@ -103,11 +105,11 @@ public class EnderecoPessoaFisica implements Serializable {
         if (this == o) return true;
         if (!(o instanceof EnderecoPessoaFisica)) return false;
         EnderecoPessoaFisica that = (EnderecoPessoaFisica) o;
-        return Objects.equals(idEndereco, that.idEndereco) && Objects.equals(idPessoa, that.idPessoa);
+        return Objects.equals(idEndereco, that.idEndereco) && Objects.equals(pessoaFisica, that.pessoaFisica);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idEndereco, idPessoa);
+        return Objects.hash(idEndereco, pessoaFisica);
     }
 }
