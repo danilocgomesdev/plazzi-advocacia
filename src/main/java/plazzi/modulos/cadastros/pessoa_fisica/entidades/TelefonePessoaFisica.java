@@ -5,23 +5,25 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "TELEFONE_PF")
+@Table(name = "TELEFONE_PESSOA_FISICA")
 public class TelefonePessoaFisica implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long idTelefone;
 
-    private Long idPessoa;
+    @ManyToOne
+    @JoinColumn(name = "ID_PESSOA_FISICA")
+    private PessoaFisica pessoaFisica;
     private String tipo;
     private String numero;
 
     public TelefonePessoaFisica(){}
 
-    public TelefonePessoaFisica(Long idTelefone, Long idPessoa, String tipo, String numero) {
+    public TelefonePessoaFisica(Long idTelefone, PessoaFisica pessoaFisica, String tipo, String numero) {
         this.idTelefone = idTelefone;
-        this.idPessoa = idPessoa;
+        this.pessoaFisica = pessoaFisica;
         this.tipo = tipo;
         this.numero = numero;
     }
@@ -34,12 +36,12 @@ public class TelefonePessoaFisica implements Serializable {
         this.idTelefone = idTelefone;
     }
 
-    public Long getIdPessoa() {
-        return idPessoa;
+    public PessoaFisica getPessoaFisica() {
+        return pessoaFisica;
     }
 
-    public void setIdPessoa(Long idPessoa) {
-        this.idPessoa = idPessoa;
+    public void setPessoaFisica(PessoaFisica pessoaFisica) {
+        this.pessoaFisica = pessoaFisica;
     }
 
     public String getTipo() {
@@ -63,11 +65,11 @@ public class TelefonePessoaFisica implements Serializable {
         if (this == o) return true;
         if (!(o instanceof TelefonePessoaFisica)) return false;
         TelefonePessoaFisica that = (TelefonePessoaFisica) o;
-        return Objects.equals(idTelefone, that.idTelefone) && Objects.equals(idPessoa, that.idPessoa);
+        return Objects.equals(idTelefone, that.idTelefone) && Objects.equals(pessoaFisica, that.pessoaFisica);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idTelefone, idPessoa);
+        return Objects.hash(idTelefone, pessoaFisica);
     }
 }
